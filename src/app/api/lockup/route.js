@@ -15,7 +15,7 @@ export async function POST(req, res) {
     const auth = getGoogleAuth();
     const sheets = google.sheets({ version: "v4", auth });
     const spreadsheetId = process.env.SPREADSHEET_ID;
-    const range = "glint contact page!A:F";
+    const range = "astra!A:B";
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
