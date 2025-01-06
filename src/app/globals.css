@@ -22,9 +22,9 @@ body {
 
 
 .lockup-bg{
-  background-image: url("/LockUpBg.png");
+  background-image: url("/LockupPage/Group26.jpg");
   background-size: cover;
-  background-position: center; 
+  background-position: top; 
   background-repeat: no-repeat;
 }
 
