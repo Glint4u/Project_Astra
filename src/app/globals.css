@@ -22,7 +22,7 @@ body {
 
 
 .lockup-bg{
-  background-image: url("/LockupPage/Group26.jpg");
+  background-image: url("/LockupPage/Group26.webp");
   background-size: cover;
   background-position: top; 
   background-repeat: no-repeat;
@@ -36,4 +36,5 @@ body {
   border: 2px solid black;
   padding: 0px 20px;
   font-size: 20px;
+
 }
