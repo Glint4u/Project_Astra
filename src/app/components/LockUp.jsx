@@ -147,7 +147,7 @@ export default function LockUp() {
           null
       }
 
-      <div className="w-screen h-screen lockup-bg flex flex-col items-center justify-center relative">
+      <div className="w-screen h-fit min-h-screen pt-[50px] md:pt-[0px] pb-[20px] lockup-bg flex flex-col items-center justify-start relative">
         <div className="flex flex-col items-center justify-center w-[90%]">
           <div className="flex items-center justify-center w-[90%] max-sm:mb-[20px]">
             <Image
@@ -194,14 +194,16 @@ export default function LockUp() {
               NOTIFY ME
             </button>
           </form>
-          <p className="text-white underline cursor-pointer mb-[38px] max-sm:text-[12px] mt-[10px]">
-            Join the exclusive early access to our next drop!
-          </p>
-          <div className="flex text-white gap-x-[10px] items-center -mt-5">
-            <p className="max-sm:text-[13px]">Follow on: </p>
-            <Link href="https://www.instagram.com/projectastra.in?igsh=MXNtOXc2YzFsYXBweQ==">
-              <Instagram size={18} className="cursor-pointer max-sm:size-4" />
-            </Link>
+          <div className="flex flex-col gap-[30px] items-center">
+            <p className="text-white underline cursor-pointer max-sm:text-[12px] mt-[10px]  ">
+              Join the exclusive early access to our next drop!
+            </p>
+            <div className="flex text-white gap-x-[10px] items-center -mt-5">
+              <p className="max-sm:text-[13px]">Follow on: </p>
+              <Link href="https://www.instagram.com/projectastra.in?igsh=MXNtOXc2YzFsYXBweQ==">
+                <Instagram size={18} className="cursor-pointer max-sm:size-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
