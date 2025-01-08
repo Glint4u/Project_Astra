@@ -10,7 +10,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-      <Toaster position="top-center" />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              zIndex: 1500,
+            },
+          }}
+        />
         {children}
       </body>
     </html>
