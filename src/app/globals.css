@@ -22,10 +22,17 @@ body {
 
 
 .lockup-bg{
-  background-image: url("/LockupPage/Group26.webp");
+  background-image: url("/LockUpBgDesktop.png");
   background-size: cover;
   background-position: top; 
   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 760px) {
+  .lockup-bg{
+    
+    background-image: url("/LockUpBgMobile.jpg");
+  }
 }
 
 .input{

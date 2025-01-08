@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Instagram, LockKeyhole, X, Eye, EyeClosed } from "lucide-react";
-import AstraLogo from "../../../public/LockupPage/AstraLogo.png";
+import AstraLogo from "../../../public/AstraLogo.png";
 import { koulen } from "../fonts";
 import Timer from "../components/Timer.js";
 import toast, { Toaster } from "react-hot-toast";
@@ -149,15 +149,16 @@ export default function LockUp() {
 
       <div className="w-screen h-screen lockup-bg flex flex-col items-center justify-center relative">
         <div className="flex flex-col items-center justify-center w-[90%]">
-          <div className="flex items-center justify-between w-[90%] max-sm:mb-[20px]">
+          <div className="flex items-center justify-center w-[90%] max-sm:mb-[20px]">
             <Image
               className="w-[20%] h-auto max-sm:w-[60%]"
               src={AstraLogo}
               alt="astralogo"
             />
-            <div onClick={() => setLockClicked(!lockClicked)} className="bg-[#545454]/50 p-[10px] shadow-md rounded-full cursor-pointer">
+            {/* <div onClick={() => setLockClicked(!lockClicked)} className="bg-[#545454]/50 p-[10px] shadow-md rounded-full cursor-pointer">
               <LockKeyhole size={20} color="white" />
-            </div>
+            </div> */}
+
           </div>
 
           <Timer initialTime={60} />
