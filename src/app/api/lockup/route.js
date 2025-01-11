@@ -30,13 +30,13 @@ export async function POST(req, res) {
 
     // Get the current timestamp
     const timestamp = new Date().toISOString(); // ISO 8601 format
-    let num = validateMobileNumber(phoneNumber)
-    if(!num.valid){
-      return NextResponse.json(
-        { error: "In valid mobile number!" },
-        { status: 400 }
-      );
-    }
+    // let num = validateMobileNumber(phoneNumber)
+    // if(!num.valid){
+    //   return NextResponse.json(
+    //     { error: "In valid mobile number!" },
+    //     { status: 400 }
+    //   );
+    // }
     // Append the email, phone number, and timestamp
     await sheets.spreadsheets.values.append({
       spreadsheetId,
