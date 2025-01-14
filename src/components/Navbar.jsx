@@ -7,9 +7,6 @@ import { Search, ShoppingCart, Menu } from 'lucide-react'
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(false)
 
-  const handleNavOpen = () => {
-
-  }
   return (
     <div className='fixed w-full top-0 home-bg'>
       <div className='bg-[#ffffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
