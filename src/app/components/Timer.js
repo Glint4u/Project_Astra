@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { koulen } from "../fonts";
 
 const Timer = () => {
-  const targetDate = new Date('2025-01-27T00:00:00'); // Set the target date and time
+  const targetDate = new Date('2025-01-27T00:00:00');
   const calculateTimeLeft = () => Math.max(0, Math.floor((targetDate - new Date()) / 1000));
 
   const [time, setTime] = useState(calculateTimeLeft);
@@ -11,7 +12,7 @@ const Timer = () => {
       setTime(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(timerInterval); // Cleanup on unmount
+    return () => clearInterval(timerInterval); 
   }, []);
 
   const days = Math.floor(time / (3600 * 24));
@@ -20,8 +21,8 @@ const Timer = () => {
   const seconds = time % 60;
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-[40px] text-white mb-[10px] max-md:text-[25px] max-sm:text-[20px] max-sm:text-center">
+    <div className={`${koulen.className} flex flex-col items-center justify-center`}>
+      <h1 className={` ${koulen.className} text-[40px] text-white mb-[10px] max-md:text-[25px] max-sm:text-[20px] max-sm:text-center`}>
         Exclusive VIP access coming soon.
       </h1>
 
