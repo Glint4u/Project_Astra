@@ -27,6 +27,13 @@ body {
   background-position: top; 
   background-repeat: no-repeat;
 }
+.transition-half-second{
+  transition: 0.5s;
+}
+
+.text-shadow{
+  text-shadow: 7px 1px 4px rgba(255, 255, 255, 0.515);
+}
 
 @media screen and (max-width: 760px) {
   .lockup-bg{
