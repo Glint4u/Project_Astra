@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@shopify/shopify-api": "^11.7.0",
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
     "googleapis": "^144.0.0",
     "lucide-react": "^0.469.0",
     "mongoose": "^8.9.3",
