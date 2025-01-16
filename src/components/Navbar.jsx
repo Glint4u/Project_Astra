@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className='bg-[#ffffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
         NEW DROP IS LIVE!
       </div>
-      <div className={`relative ${navOpen ? "h-[290px] " : "h-[100px]"} md:h-[120px] transition-all duration-500 overflow-hidden bg-[#00000057] backdrop-blur-[10px] md:flex items-center justify-center md:px-[3vw]`}>
+      <div className={`relative ${navOpen ? "h-[240px] " : "h-[100px]"} md:h-[120px] transition-all duration-500 overflow-hidden bg-[#00000057] backdrop-blur-[10px] md:flex items-center justify-center md:px-[3vw]`}>
         <div className=' h-[100px] md:h-[120px] flex justify-center items-center'>
 
           <div className='flex items-center absolute left-[10px] sm:left-[30px]'>
@@ -29,14 +29,14 @@ export default function Navbar() {
               </li>
               <li>
                 <Link href={"about"}>
-                  ABOUT
+                  ABOUT US
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href={"products"}>
                   PRODUCTS
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href={"/contact-us"}>
                   CONTACT US
@@ -74,14 +74,14 @@ export default function Navbar() {
             </li>
             <li>
               <Link href={"about"}>
-                ABOUT
+                ABOUT US
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href={"products"}>
                 PRODUCTS
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href={"/contact-us"}>
                 CONTACT US

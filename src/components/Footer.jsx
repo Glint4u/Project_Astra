@@ -5,8 +5,7 @@ const Policies = ({ content, link }) => {
     return (
         <Link href={link}>
             <div className='text-white flex items-center justify-center gap-[8px] md:gap-[10px]'>
-                <div className='w-[4px] h-[4px] bg-white rounded-full'></div>
-                <div className='text-[10.5px] md:text-[13px]'>
+                <div className='text-[10.5px] md:text-[12px] underline'>
                     {content}
                 </div>
             </div>
@@ -22,12 +21,12 @@ export default function Footer() {
             </div>
             <div className='flex flex-col sm:flex-row gap-[8px] md:gap-[10px] items-center justify-center'>
                 <div className='flex gap-[8px] md:gap-[10px]'>
-                    <Policies content={"Refund policy"} link={"/refund-policy"} />
-                    <Policies content={"Privacy policy"} link={"/privacy-policy"} />
+                    <Policies content={"TERMS AND CONDITIONS"} link={"/terms-of-service"} />
+                    <Policies content={"PRIVACY POLICY"} link={"/privacy-policy"} />
                 </div>
                 <div className='flex gap-[8px] md:gap-[10px]'>
-                    <Policies content={"Terms of service"} link={"/terms-of-service"} />
-                    <Policies content={"Shipping policy"} link={"/shipping-policy"} />
+                    <Policies content={"SHIPPING POLICY"} link={"/shipping-policy"} />
+                    <Policies content={"REFUND POLICY"} link={"/refund-policy"} />
                 </div>
             </div>
         </div>
