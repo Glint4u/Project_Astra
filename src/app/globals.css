@@ -64,3 +64,16 @@
   padding: 0px 20px;
   font-size: 20px;
 }
+
+.strip{
+  background-image: url(../../public/backStrip.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 110%;
+}
+
+@media(max-width:640px){
+  .strip{
+    background-size: 200%;
+  }
+}
