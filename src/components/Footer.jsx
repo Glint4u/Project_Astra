@@ -20,14 +20,9 @@ export default function Footer() {
                 &copy; 2025 Project Astra. <Link href={"https://glint4u.tech"}>Developed by glint.</Link>
             </div>
             <div className='flex flex-col sm:flex-row gap-[8px] md:gap-[10px] items-center justify-center'>
-                <div className='flex gap-[8px] md:gap-[10px]'>
-                    <Policies content={"TERMS AND CONDITIONS"} link={"/terms-of-service"} />
+                    <Policies content={"TERMS AND CONDITIONS"} link={"/terms-and-conditions"} />
                     <Policies content={"PRIVACY POLICY"} link={"/privacy-policy"} />
-                </div>
-                <div className='flex gap-[8px] md:gap-[10px]'>
-                    <Policies content={"SHIPPING POLICY"} link={"/shipping-policy"} />
-                    <Policies content={"REFUND POLICY"} link={"/refund-policy"} />
-                </div>
+                    <Policies content={"SHIPPING AND REFUND POLICY"} link={"/shipping-and-refund-policy"} />
             </div>
         </div>
     )
