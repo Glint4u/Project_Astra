@@ -77,3 +77,7 @@
     background-size: 200%;
   }
 }
+
+.subscribe:-ms-input-placeholder{
+  color: rgba(39, 39, 39, 0.141);
+}

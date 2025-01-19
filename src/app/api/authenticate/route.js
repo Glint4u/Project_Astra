@@ -13,7 +13,7 @@ const getFromCookies = async () => {
         }
         return "false"; 
     } catch (error) {
-        console.error("Error retrieving or decrypting cookie:", error.message);
+        // console.error("Error retrieving or decrypting cookie:", error.message);
         return "false";
     }
 };
