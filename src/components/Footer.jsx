@@ -1,5 +1,7 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import { toast } from 'react-hot-toast'
 import { koulen } from '@/app/fonts'
 
 const Policies = ({ content, link }) => {
@@ -15,22 +17,50 @@ const Policies = ({ content, link }) => {
 }
 
 export default function Footer() {
+    const [email, setEmail] = useState("")
+    const submitSubscribe = async (e) => {
+        e.preventDefault()
+
+        const loadingToast = toast.loading("Subscribing...")
+
+        try {
+            const response = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: email }),
+            });
+
+            const data = await response.json()
+            if (response.ok) {
+                toast.success("Successfully subscribed!", { id: loadingToast })
+                setEmail("") // Clear input field on success
+            } else {
+                toast.error(data.message || "Failed to subscribe. Try again.", { id: loadingToast })
+            }
+        } catch (error) {
+            toast.error("Something went wrong. Please try again later.", { id: loadingToast })
+        }
+    }
+
     return (
-        // <div className='min-h-[50px] py-[20px] h-fit w-full bg-black'>
-        //     <div className='text-[13px] text-white text-center mb-[5px]'>
-        //         &copy; 2025 Project Astra. <Link href={"https://glint4u.tech"}>Developed by glint.</Link>
-        //     </div>
-        //     <div className='px-[10px] flex flex-row flex-wrap gap-[8px] md:gap-[10px] items-center justify-center'>
-        //             <Policies content={"TERMS AND CONDITIONS"} link={"/terms-and-conditions"} />
-        //             <Policies content={"PRIVACY POLICY"} link={"/privacy-policy"} />
-        //             <Policies content={"SHIPPING AND REFUND POLICY"} link={"/shipping-and-refund-policy"} />
-        //     </div>
-        // </div>
         <div className='w-full gap-[10px] px-[10px] md:px-[30px] min-h-[150px] h-fit py-[20px] bg-black border-t-[2px] border-[#6c6c6c4f] flex flex-col footer:flex-row items-center justify-between flex-wrap'>
             <div className='flex flex-col justify-center items-center gap-[10px]'>
-                <form action="" className='flex '>
-                    <input type="text" className='subscribe w-[150px] md:w-[200px] h-[40px] md:h-[50px] bg-[#ffffff2f] pl-[15px]' placeholder='EMAIL' />
-                    <button className=' w-[100px] md:w-[120px] text-[16px] md:text-[18px] bg-white h-[40px]  md:h-[50px]'>SUBSCRIBE</button>
+                <form action="" onSubmit={submitSubscribe} className='flex'>
+                    <input 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        type="email" 
+                        className='subscribe w-[150px] md:w-[200px] h-[40px] md:h-[50px] bg-[#ffffff2f] pl-[15px]' 
+                        placeholder='EMAIL' 
+                    />
+                    <button 
+                        type='submit' 
+                        className='w-[100px] md:w-[120px] text-[16px] md:text-[18px] bg-white h-[40px] md:h-[50px]'
+                    >
+                        SUBSCRIBE
+                    </button>
                 </form>
                 <div className='text-[#ffffff4d] text-center text-[13px]'>
                     Get exclusive access and updates of our next drop

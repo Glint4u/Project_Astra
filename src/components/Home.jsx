@@ -29,7 +29,6 @@ export default function HomePage() {
             temp_data.push(temp)
         }
         setData(temp_data)
-        console.log(response)
     }
 
 
