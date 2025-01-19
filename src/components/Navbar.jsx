@@ -16,14 +16,14 @@ export default function Navbar() {
         <div className=' h-[100px] md:h-[120px] flex justify-center items-center'>
 
           <div className='flex items-center absolute left-[10px] sm:left-[30px]'>
-            <Link href={"/home"}>
-              <Image src={"/AstraLogo.png"} className='w-[150px] md:w-[180px]' width={180} height={180} />
+            <Link href={"/"}>
+              <Image alt='Project Astra Logo' src={"/AstraLogo.png"} className='w-[150px] md:w-[180px]' width={180} height={180} />
             </Link>
           </div>
           <div>
             <ul className=' hidden md:flex items-center justify-center gap-[3vw] text-white'>
               <li>
-                <Link href={"/home"}>
+                <Link href={"/"}>
                   HOME
                 </Link>
               </li>
@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className='w-full flex md:hidden'>
           <ul className=' flex flex-col md:hidden items-center justify-center gap-[20px] text-white min-h-[100px] h-fit w-full'>
             <li>
-              <Link href={"/home"}>
+              <Link href={"/"}>
                 HOME
               </Link>
             </li>
