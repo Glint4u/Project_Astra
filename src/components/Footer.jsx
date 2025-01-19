@@ -19,7 +19,7 @@ export default function Footer() {
             <div className='text-[13px] text-white text-center mb-[5px]'>
                 &copy; 2025 Project Astra. <Link href={"https://glint4u.tech"}>Developed by glint.</Link>
             </div>
-            <div className='flex flex-col sm:flex-row gap-[8px] md:gap-[10px] items-center justify-center'>
+            <div className='px-[10px] flex flex-row flex-wrap gap-[8px] md:gap-[10px] items-center justify-center'>
                     <Policies content={"TERMS AND CONDITIONS"} link={"/terms-and-conditions"} />
                     <Policies content={"PRIVACY POLICY"} link={"/privacy-policy"} />
                     <Policies content={"SHIPPING AND REFUND POLICY"} link={"/shipping-and-refund-policy"} />

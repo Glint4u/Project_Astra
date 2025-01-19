@@ -1,18 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import ProductCard from '@/components/ProductCard';
-import { koulen } from '../fonts';
-import getAllProducts from '../config/service/productService';
+import ProductCard from './ProductCard';
+import { koulen } from '../app/fonts';
+import getAllProducts from '@/app/config/service/productService';
+import Loading from './Loading';
 
-const bgTextHome = () => {
-    return (
-        <div className='text-white w-full h-full'>
-            Jaiman
-        </div>
-    );
-};
 
-export default function Page() {
+export default function HomePage() {
     const [screenWidth, setScreenWidth] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [fadeIn, setFadeIn] = useState(true);
@@ -83,18 +77,6 @@ export default function Page() {
 
     const currentBackgroundImage = getImagesArray()[currentImageIndex];
 
-    const Products = [
-        { image: "/Product1.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product2.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product3.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product2.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product3.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product1.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product2.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product3.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-        { image: "/Product1.png", title: "NIGHT WOOD BLUE T-SHIRT", price: "1000" },
-    ];
-
     return (
         <>
             <style jsx>{`
@@ -140,18 +122,18 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className="bg-black min-h-[500px] h-fit pb-[200px] pt-[50px] w-full">
+                <div className="bg-black min-h-[500px] h-fit pb-[100px] pt-[50px] w-full">
                     <div className="w-[90%] m-auto text-white text-[30px] md:text-[40px] font-semibold mb-[30px]">
                         PRODUCTS
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center justify-center w-[90%] gap-[30px] m-auto">
+                    <div className="grid grid-cols-2 lg:grid-cols-3 place-content-between flex-wrap min-h-[300px] w-[90%] gap-[30px] m-auto">
                         {
                             data ?
                                 data.map((item, index) => (
                                     <ProductCard key={item.id} data={item} />
                                 ))
                                 :
-                                <div className='text-white'>Loading...</div>
+                                <Loading screen='full' />
                         }
                     </div>
                 </div>

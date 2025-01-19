@@ -1,16 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import { Instagram, LockKeyhole, X, Eye, EyeClosed } from "lucide-react";
-import AstraLogo from "../../../public/AstraLogo.png";
-import { koulen } from "../fonts";
-import Timer from "../components/Timer.js";
+import AstraLogo from "../../public/AstraLogo.png";
+import { koulen } from "@/app/fonts";
+import Timer from "@/app/utils/Timer";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { AuthContext } from "@/context/authContext";
 
 
 export default function LockUp() {
+  const {isAuthenticated, setAuthenticated} = useContext(AuthContext)
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
@@ -69,9 +70,7 @@ export default function LockUp() {
         setLoading(false);
         toast.success("Website Unlocked!", { id: toastId });
         setPassword("")
-        // window.location.push("/home")
-        window.location.href = "/home";
-        // redirect('/home')
+        setAuthenticated(true)
       } else {
         setLoading(false);
         throw new Error(data.message || "Something went wrong!");
@@ -84,7 +83,6 @@ export default function LockUp() {
 
   return (
     <>
-
       {
         lockClicked ?
           <div className="bg-[#5b5b5b7c]  w-screen h-screen backdrop-blur-[10px] fixed top-0 z-[100000] flex justify-center items-center px-[20px] " >
@@ -149,15 +147,15 @@ export default function LockUp() {
 
       <div className="w-screen h-fit min-h-screen pt-[50px] md:pt-[0px] pb-[20px] lockup-bg flex flex-col items-center justify-start relative">
         <div className="flex flex-col items-center justify-center w-[90%]">
-          <div className="flex items-center justify-center w-[90%] max-sm:mb-[20px]">
+          <div className="flex items-center justify-between w-[90%] max-sm:mb-[20px]">
             <Image
               className="w-[20%] h-auto max-sm:w-[60%]"
               src={AstraLogo}
               alt="astralogo"
             />
-            {/* <div onClick={() => setLockClicked(!lockClicked)} className="bg-[#545454]/50 p-[10px] shadow-md rounded-full cursor-pointer">
+            <div onClick={() => setLockClicked(!lockClicked)} className="bg-[#545454]/50 p-[10px] shadow-md rounded-full cursor-pointer">
               <LockKeyhole size={20} color="white" />
-            </div> */}
+            </div>
 
           </div>
 

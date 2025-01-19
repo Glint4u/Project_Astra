@@ -1,7 +1,21 @@
 import { NextResponse } from "next/server";
+import { encrypter, decrypter } from "@/app/utils/encrypter_decrypter";
 import bcrypt from "bcrypt";
 import AccessPassword from "../../model/accessPassword";
 import connectDB from "../../config.js";
+
+const storeToCookies = (value) => {
+  const cookieName = encrypter("isAuthenticated");
+  const cookieValue = encrypter(value);
+  const maxAge = 60 * 60 * 24; 
+
+  return new NextResponse(null, {
+    headers: {
+      "Set-Cookie": `${cookieName}=${cookieValue}; Path=/; HttpOnly; Secure; Max-Age=${maxAge}`,
+    },
+  });
+};
+
 
 function passwordValidator(password) {
   let isPasswordOk = true;
@@ -20,23 +34,17 @@ function passwordValidator(password) {
   return { isPasswordOk };
 }
 
-export async function POST(req, res) {
+export async function POST(req) {
   const { password } = await req.json();
 
-  // Validate password
   const { isPasswordOk, message } = passwordValidator(password);
   if (!isPasswordOk) {
-    return NextResponse.json(
-      { error: message },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: message }, { status: 400 });
   }
 
   try {
-    // Connect to the database
     await connectDB();
 
-    // Retrieve the hashed password from the database
     const storedPasswordRecord = await AccessPassword.findOne({});
     if (!storedPasswordRecord) {
       return NextResponse.json(
@@ -45,12 +53,12 @@ export async function POST(req, res) {
       );
     }
 
-    // Compare the plain-text password with the hashed password
     const isMatch = await bcrypt.compare(password, storedPasswordRecord.password);
     if (isMatch) {
+      const cookieResponse = storeToCookies("true");
       return NextResponse.json(
         { message: "User Authenticated!" },
-        { status: 200 }
+        { status: 200, headers: cookieResponse.headers }
       );
     } else {
       return NextResponse.json(
@@ -65,3 +73,4 @@ export async function POST(req, res) {
     );
   }
 }
+
