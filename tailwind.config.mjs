@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        footer: "900px"
+      },
       animation: {
         'loading': 'load 1s linear infinite',
       },

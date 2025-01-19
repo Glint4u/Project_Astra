@@ -6,11 +6,12 @@ import ShippingAndRefund from "@/components/ShippingAndRefund";
 
 export default function page() {
   const { isAuthenticated, setAuthenticated, isOpen, setOpen, loading } = useContext(AuthContext)
+
   useEffect(() => {
-    if (!isOpen) {
+    if (!isOpen && !loading) {
       window.location.href = "/"
     }
-  }, [])
+  }, [loading])
   return (
     <div>
       {

@@ -10,13 +10,14 @@ export const AuthProvider = ({ children }) => {
     const [isOpen, setOpen] = useState(false)
     const [loading, setLoading] = useState(true)
 
-
     const checkAuthenticated = async () => {
         const response = await fetch("/api/authenticate")
         const data = await response.json()
         setAuthenticated(data.isAuthenticated)
         if (data.isAuthenticated) {
             setOpen(true)
+        }else{
+            setOpen(false)
         }
         setLoading(false)
     }
@@ -27,6 +28,7 @@ export const AuthProvider = ({ children }) => {
         const current_date = parseInt(raw_date[1])
         return current_date
     }
+
     useEffect(() => {
         const date = checkDate()
         if (date > 25) {
@@ -34,7 +36,7 @@ export const AuthProvider = ({ children }) => {
             setOpen(true)
             setAuthenticated(true)
         } else {
-            setOpen(false)
+            // setOpen(false)
             checkAuthenticated()
         }
     }, [])

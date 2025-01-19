@@ -3,16 +3,17 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Search, ShoppingCart, Menu } from 'lucide-react'
+import { koulen } from '@/app/fonts'
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(false)
 
   return (
     <div className='fixed w-full top-0 home-bg'>
-      <div className='bg-[#ffffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
+      {/* <div className='bg-[#ffffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
         NEW DROP IS LIVE!
-      </div>
-      <div className={`relative ${navOpen ? "h-[240px] " : "h-[100px]"} md:h-[120px] transition-all duration-500 overflow-hidden bg-[#00000057] backdrop-blur-[10px] md:flex items-center justify-center md:px-[3vw]`}>
+      </div> */}
+      <div className={`relative ${koulen.className} ${navOpen ? "h-[290px] " : "h-[100px]"} md:h-[120px] transition-all duration-500 overflow-hidden bg-[#00000057] backdrop-blur-[10px] md:flex items-center justify-center md:px-[3vw]`}>
         <div className=' h-[100px] md:h-[120px] flex justify-center items-center'>
 
           <div className='flex items-center absolute left-[10px] sm:left-[30px]'>
@@ -20,26 +21,27 @@ export default function Navbar() {
               <Image alt='Project Astra Logo' src={"/AstraLogo.png"} className='w-[150px] md:w-[180px]' width={180} height={180} />
             </Link>
           </div>
+
           <div>
-            <ul className=' hidden md:flex items-center justify-center gap-[3vw] text-white'>
+            <ul className=' hidden md:flex items-center justify-center gap-[3vw] text-white text-[20px] tracking-[1px]'>
               <li>
                 <Link href={"/"}>
-                  HOME
+                  SHOP
                 </Link>
               </li>
               <li>
                 <Link href={"about"}>
-                  ABOUT US
+                  OUR STORY
                 </Link>
               </li>
-              {/* <li>
-                <Link href={"products"}>
-                  PRODUCTS
-                </Link>
-              </li> */}
               <li>
                 <Link href={"/contact-us"}>
-                  CONTACT US
+                  SUPPORT
+                </Link>
+              </li>
+              <li>
+                <Link href={"products"}>
+                  REVIEWS
                 </Link>
               </li>
             </ul>
@@ -66,27 +68,27 @@ export default function Navbar() {
         </div>
 
         <div className='w-full flex md:hidden'>
-          <ul className=' flex flex-col md:hidden items-center justify-center gap-[20px] text-white min-h-[100px] h-fit w-full'>
-            <li>
-              <Link href={"/"}>
-                HOME
-              </Link>
-            </li>
-            <li>
-              <Link href={"about"}>
-                ABOUT US
-              </Link>
-            </li>
-            {/* <li>
-              <Link href={"products"}>
-                PRODUCTS
-              </Link>
-            </li> */}
-            <li>
-              <Link href={"/contact-us"}>
-                CONTACT US
-              </Link>
-            </li>
+          <ul className=' flex flex-col md:hidden items-center justify-center gap-[20px] text-white min-h-[100px] h-fit w-full text-[20px] tracking-[1px]'>
+          <li>
+                <Link href={"/"}>
+                  SHOP
+                </Link>
+              </li>
+              <li>
+                <Link href={"about"}>
+                  OUR STORY
+                </Link>
+              </li>
+              <li>
+                <Link href={"/contact-us"}>
+                  SUPPORT
+                </Link>
+              </li>
+              <li>
+                <Link href={"products"}>
+                  REVIEWS
+                </Link>
+              </li>
           </ul>
         </div>
 
