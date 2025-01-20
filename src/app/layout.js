@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Koulen } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DisableContextMenu from "@/components/DisableContextMenu";
 import { AuthProvider } from "@/context/authContext";
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AuthProvider>
+          {/* <DisableContextMenu/> */}
           <Navbar />
           <Toaster
             position="top-center"

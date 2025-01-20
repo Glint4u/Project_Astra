@@ -36,6 +36,7 @@ export default function Footer() {
             if (response.ok) {
                 toast.success("Successfully subscribed!", { id: loadingToast })
                 setEmail("") // Clear input field on success
+                return
             } else {
                 toast.error(data.message || "Failed to subscribe. Try again.", { id: loadingToast })
             }
