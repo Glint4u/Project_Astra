@@ -15,38 +15,39 @@
 }
 
 
-.lockup-bg{
+.lockup-bg {
   background-image: url("/LockUpBgDesktop.png");
   background-size: cover;
-  background-position: top; 
+  background-position: top;
   background-repeat: no-repeat;
 }
-.transition-half-second{
+
+.transition-half-second {
   transition: 0.5s;
 }
 
-.text-shadow{
+.text-shadow {
   text-shadow: 13px 2px 5px rgba(255, 255, 255, 0.515);
 }
 
 
 
 @media screen and (max-width: 760px) {
-  .text-shadow{
-    
+  .text-shadow {
+
     text-shadow: 7px 1px 5px rgba(255, 255, 255, 0.515);
 
   }
 }
 
 @media screen and (max-width: 760px) {
-  .lockup-bg{
-    
+  .lockup-bg {
+
     background-image: url("/LockUpBgMobile.jpg");
   }
 }
 
-.input{
+.input {
   background-color: #1D1D1D;
   color: white;
   width: 90%;
@@ -55,7 +56,8 @@
   padding: 0px 20px;
   font-size: 20px;
 }
-.pass-input{
+
+.pass-input {
   background-color: #1D1D1D;
   color: white;
   width: 100%;
@@ -65,19 +67,30 @@
   font-size: 20px;
 }
 
-.strip{
+.strip {
   background-image: url(../../public/backStrip.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 110%;
 }
 
-@media(max-width:640px){
-  .strip{
+@media(max-width:640px) {
+  .strip {
     background-size: 200%;
   }
 }
 
-.subscribe:-ms-input-placeholder{
+.subscribe:-ms-input-placeholder {
   color: rgba(39, 39, 39, 0.141);
+}
+
+
+@layer utilities {
+  .sub-main-container::-webkit-scrollbar-thumb {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar{
+  display: none;
 }

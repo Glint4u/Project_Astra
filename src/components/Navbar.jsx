@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <div className='fixed w-full top-0 home-bg'>
-      {/* <div className='bg-[#ffffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
+      {/* <div className='bg-[#ff ffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
         NEW DROP IS LIVE!
       </div> */}
       <div className={`relative ${koulen.className} ${navOpen ? "h-[290px] " : "h-[100px]"} md:h-[120px] transition-all duration-500 overflow-hidden bg-[#00000057] backdrop-blur-[10px] md:flex items-center justify-center md:px-[3vw]`}>
@@ -24,23 +24,23 @@ export default function Navbar() {
 
           <div>
             <ul className=' hidden md:flex items-center justify-center gap-[3vw] text-white text-[20px] tracking-[1px]'>
-              <li>
+              <li onClick={() => { setNavOpen(false) }}>
                 <Link href={"/"}>
                   SHOP
                 </Link>
               </li>
-              <li>
-                <Link href={"about"}>
+              <li onClick={() => { setNavOpen(false) }}>
+                <Link href={"our-story"}>
                   OUR STORY
                 </Link>
               </li>
-              <li>
-                <Link href={"/contact-us"}>
+              <li onClick={() => { setNavOpen(false) }}>
+                <Link href={"/customer-support"}>
                   SUPPORT
                 </Link>
               </li>
-              <li>
-                <Link href={"products"}>
+              <li onClick={() => { setNavOpen(false) }}>
+                <Link href={"reviews"}>
                   REVIEWS
                 </Link>
               </li>
@@ -69,26 +69,26 @@ export default function Navbar() {
 
         <div className='w-full flex md:hidden'>
           <ul className=' flex flex-col md:hidden items-center justify-center gap-[20px] text-white min-h-[100px] h-fit w-full text-[20px] tracking-[1px]'>
-          <li>
-                <Link href={"/"}>
-                  SHOP
-                </Link>
-              </li>
-              <li>
-                <Link href={"about"}>
-                  OUR STORY
-                </Link>
-              </li>
-              <li>
-                <Link href={"/contact-us"}>
-                  SUPPORT
-                </Link>
-              </li>
-              <li>
-                <Link href={"products"}>
-                  REVIEWS
-                </Link>
-              </li>
+            <li onClick={() => { setNavOpen(false) }}>
+              <Link href={"/"}>
+                SHOP
+              </Link>
+            </li>
+            <li onClick={() => { setNavOpen(false) }}>
+              <Link href={"our-story"}>
+                OUR STORY
+              </Link>
+            </li>
+            <li onClick={() => { setNavOpen(false) }}>
+              <Link href={"/customer-support"}>
+                SUPPORT
+              </Link>
+            </li>
+            <li onClick={() => { setNavOpen(false) }}>
+              <Link href={"reviews"}>
+                REVIEWS
+              </Link>
+            </li>
           </ul>
         </div>
 

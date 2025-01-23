@@ -17,6 +17,7 @@ export const encrypter = (id) => {
       "&": "Yz01", "*": "2345", "(": "6789", ")": "aBcD", "=": "EeFf", "+": "GgHh",
       "[": "IiJj", "]": "KkLl", ":": "MmNn", ";": "OoPp", "<": "QqRr", ">": "SsTt",
       ",": "UuVv", "?": "WwXx", "|": "YyZz", "`": "1234", "~": "5678", "/": "90-=",
+      " ": "ajaj"
   };
 
   for (let i = 0; i < id.length; i++) {
@@ -49,6 +50,7 @@ export const decrypter = (encrypted_id) => {
       "Yz01": "&", "2345": "*", "6789": "(", "aBcD": ")", "EeFf": "=", "GgHh": "+",
       "IiJj": "[", "KkLl": "]", "MmNn": ":", "OoPp": ";", "QqRr": "<", "SsTt": ">",
       "UuVv": ",", "WwXx": "?", "YyZz": "|", "1234": "`", "5678": "~", "90-=": "/",
+      "ajaj": " "
   };
 
   let decrypted_id = "";

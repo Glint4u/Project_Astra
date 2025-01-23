@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { toast } from 'react-hot-toast'
 import { koulen } from '@/app/fonts'
+import API_URLS from "../app/constants/api_urls"
 
 const Policies = ({ content, link }) => {
     return (
@@ -53,18 +54,19 @@ export default function Footer() {
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)} 
                         type="email" 
-                        className='subscribe w-[150px] md:w-[200px] h-[40px] md:h-[50px] bg-[#ffffff2f] pl-[15px]' 
+                        className='subscribe w-[150px] md:w-[200px] h-[40px] md:h-[40px] text-[14px] md:text-[16px] text-[#ffffff] outline-none bg-[#ffffff2f] pl-[15px]' 
                         placeholder='EMAIL' 
+                        required
                     />
                     <button 
                         type='submit' 
-                        className='w-[100px] md:w-[120px] text-[16px] md:text-[18px] bg-white h-[40px] md:h-[50px]'
+                        className='w-[100px] md:w-[110px] text-[14px] md:text-[16px] bg-white h-[40px] md:h-[40px]'
                     >
                         SUBSCRIBE
                     </button>
                 </form>
                 <div className='text-[#ffffff4d] text-center text-[13px]'>
-                    Get exclusive access and updates of our next drop
+                    Get exclusive access and updates of our next drop.
                 </div>
             </div>
             <div className='flex flex-col items-center footer:items-end gap-[10px]'>
