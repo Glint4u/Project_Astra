@@ -85,7 +85,7 @@ export default function LockUp() {
     <>
       {
         lockClicked ?
-          <div className="bg-[#5b5b5b7c]  w-screen h-screen backdrop-blur-[10px] fixed top-0 z-[100000] flex justify-center items-center px-[20px] " >
+          <div onClick={()=>setLockClicked(false)} className="bg-[#5b5b5b7c]  w-screen h-screen backdrop-blur-[10px] fixed top-0 z-[100000] flex justify-center items-center px-[20px] " >
             <Toaster
               position="top-center"
               toastOptions={{
@@ -94,12 +94,12 @@ export default function LockUp() {
                 },
               }}
             />
-            <div className="w-[400px] p-[20px] bg-[#2a2a2adf] text-white min-h-[180px] h-fit rounded-[20px] shadow-md" >
+            <div onClick={(e)=>e.stopPropagation()} className="w-[400px] p-[20px] bg-[#2a2a2adf] text-white min-h-[180px] h-fit rounded-[20px] shadow-md" >
               <div className=" w-full flex justify-end cursor-pointer">
                 <X onClick={() => { setLockClicked(!lockClicked); setPassword("") }} />
               </div>
 
-              <div className="h-fit mt-[10px]">
+              <div className="h-fit mt-[10px]" >
                 <form onSubmit={checkPassword} action="" className={`w-[100%] m-auto flex flex-col justify-center ${koulen.className}`}>
                   <label htmlFor="" className="text-[17px] tracking-[1px] mb-[5px]">
                     Enter your password to get Early Access!

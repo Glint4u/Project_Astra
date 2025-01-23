@@ -7,11 +7,18 @@ import connectDB from "../../config.js";
 const storeToCookies = (value) => {
   const cookieName = encrypter("isAuthenticated");
   const cookieValue = encrypter(value);
-  const maxAge = 60 * 60 * 24; 
+  const cookieName2 = encrypter("date");
+  const date = new Date()
+  const cookieValue2 = encrypter(date.toUTCString())
+  const maxAge = 60 * 60 * 24;
 
   return new NextResponse(null, {
     headers: {
-      "Set-Cookie": `${cookieName}=${cookieValue}; Path=/; HttpOnly; Secure; Max-Age=${maxAge}`,
+      "Set-Cookie": [
+        `${cookieName}=${cookieValue}; Path=/; HttpOnly; Secure; Max-Age=${maxAge}`,
+        `${cookieName2}=${cookieValue2}; Path=/; HttpOnly; Secure; Max-Age=${maxAge}`,
+      ],
+
     },
   });
 };
