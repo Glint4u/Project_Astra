@@ -1,25 +1,36 @@
-// productsQuery.js
 const PRODUCT_BY_ID_QUERY = `
-  query getProduct($id: ID!) {
-    product(id: $id) {
-      id
-      title
-      publishedAt
-      onlineStoreUrl
-      images(first: 1) {
-        edges {
-          node {
-            transformedSrc
+  query getProductById($id: ID!) {
+  product(id: $id) {
+    title
+    description
+    featuredImage {
+      url
+      altText
+    }
+    variants(first: 100) {
+      edges {
+        node {
+          id
+          title
+          price {
+            amount
+            currencyCode
           }
-        }
-      }
-      priceRange {
-        minVariantPrice {
-          amount
+          compareAtPrice {
+            amount
+            currencyCode
+          }
+          availableForSale
+          selectedOptions {
+            name
+            value
+          }
         }
       }
     }
   }
+}
+  
 `;
 
 export default PRODUCT_BY_ID_QUERY;
