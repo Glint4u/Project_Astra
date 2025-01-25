@@ -192,7 +192,7 @@ export default function Page() {
               <div>
                 <h1 className="text-[30px] font-bold">{data?.title}</h1>
                 <p className="text-[15px] font-thin">
-                  ₹ {data?.variants.edges[0]?.node?.price?.amount}
+                  $ {data?.variants.edges[0]?.node?.price?.amount}
                 </p>
               </div>
 

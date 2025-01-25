@@ -15,7 +15,7 @@ export default function ProductCard({ data }) {
                         {data.title}
                     </div>
                     <div className='font-thin'>
-                        ₹ {data.price}
+                        $ {data.price}
                     </div>
 
                 </div>
