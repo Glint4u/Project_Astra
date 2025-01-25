@@ -1,11 +1,13 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Search, ShoppingCart, Menu } from 'lucide-react'
 import { koulen } from '@/app/fonts'
+import { AuthContext } from '@/context/authContext'
 
 export default function Navbar() {
+  const {cartLength} = useContext(AuthContext)
   const [navOpen, setNavOpen] = useState(false)
 
   return (
@@ -30,7 +32,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li onClick={() => { setNavOpen(false) }}>
-                <Link href={"our-story"}>
+                <Link href={"/our-story"}>
                   OUR STORY
                 </Link>
               </li>
@@ -39,12 +41,12 @@ export default function Navbar() {
                   SUPPORT
                 </Link>
               </li>
-              <li onClick={() => { setNavOpen(false) }}>
-                <Link href={"reviews"}>
+              {/* <li onClick={() => { setNavOpen(false) }}>
+                <Link href={"/reviews"}>
                   REVIEWS
                 </Link>
-              </li>
-            </ul>
+              </li> */}
+            </ul> 
           </div>
           <div className=' absolute right-[10px] sm:right-[30px] flex items-center justify-center gap-[15px] md:gap-[2vw] '>
             {/* <div className='w-[180px] h-[40px] bg-[#d9d9d938] focus:border-[1px] focus:border-black rounded-full flex items-center justify-between pl-[10px] '>
@@ -56,7 +58,7 @@ export default function Navbar() {
             <div className='relative cursor-pointer w-[40px] h-[40px] flex justify-center items-center bg-[#d9d9d938] rounded-full'>
               <Link href={"/cart"}>
                 <ShoppingCart color='#ffffff' />
-                <div className='absolute top-[0px] right-[2px] w-[12px] h-[12px] rounded-full bg-white text-[9px] flex items-center justify-center '>1</div>
+                <div className='absolute top-[0px] right-[0px] w-[13px] h-[13px] rounded-full bg-white text-[9px] font-medium flex items-center justify-center text-center '>{cartLength}</div>
               </Link>
             </div>
             <div className={`flex md:hidden z-[1000]  cursor-pointer transition-half-second gap-[6px] flex-col bg-[#d9d9d938] w-[40px] h-[40px] rounded-full items-center justify-center`} onClick={() => { setNavOpen(!navOpen) }} >
@@ -75,7 +77,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li onClick={() => { setNavOpen(false) }}>
-              <Link href={"our-story"}>
+              <Link href={"/our-story"}>
                 OUR STORY
               </Link>
             </li>
@@ -84,11 +86,11 @@ export default function Navbar() {
                 SUPPORT
               </Link>
             </li>
-            <li onClick={() => { setNavOpen(false) }}>
-              <Link href={"reviews"}>
+            {/* <li onClick={() => { setNavOpen(false) }}>
+              <Link href={"/reviews"}>
                 REVIEWS
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 

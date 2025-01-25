@@ -1,12 +1,16 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import HomePage from "@/components/Home";
 import LockUp from "@/components/LockUp";
 import { AuthContext } from "@/context/authContext";
 import Loading from "@/components/Loading";
 
 export default function Home() {
-  const { isAuthenticated, loading } = useContext(AuthContext);
+  const { isAuthenticated, loading, productIds, setProductIds, addProductsToLocal } = useContext(AuthContext);
+
+  useEffect(()=> {
+    console.log(productIds)
+  }, [productIds])
   return (
     <div>
       {loading ? (
@@ -17,7 +21,7 @@ export default function Home() {
         </div>
       ) : (
         <div>
-          <HomePage />
+          <HomePage productIds={productIds} setProductIds={setProductIds} addProductsToLocal={addProductsToLocal} />
         </div>
       )}
     </div>

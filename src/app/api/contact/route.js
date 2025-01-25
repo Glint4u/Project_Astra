@@ -23,7 +23,7 @@ export async function POST(req, res) {
             range,
             valueInputOption: "USER_ENTERED",
             requestBody: {
-                values: [[timestamp, name, email, contact_reason, mobile_num, message]],
+                values: [[timestamp, name, email, mobile_num, contact_reason, message]],
             },
         });
 
