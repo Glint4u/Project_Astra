@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react'
 export default function ProductCard({ data }) {
     return (
         <div className='text-white'>
-            <Link href={"/products"} className='flex flex-col items-center justify-center'>
+            <Link href={`/product/${data.id}`} className='flex flex-col items-center justify-center'>
                 <div className='bg-[#141414e1] overflow-y-hidden h-fit min-h-[100px]  sm:min-h-[350px] w-[130px] sm:w-[300px] flex items-center justify-center'>
                     <Image alt={data.title} src={data.image} className='w-full' width={300} height={300} />
                 </div>
