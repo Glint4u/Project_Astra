@@ -7,10 +7,12 @@ import Footer from "@/components/Footer";
 import DisableContextMenu from "@/components/DisableContextMenu";
 import { AuthProvider } from "@/context/authContext";
 
+
 export const metadata = {
   title: "Project Astra",
   description: "For the ambitious",
 };
+
 
 export default function RootLayout({ children }) {
   return (
