@@ -8,9 +8,6 @@ import Loading from "@/components/Loading";
 export default function Home() {
   const { isAuthenticated, loading, productIds, setProductIds, addProductsToLocal } = useContext(AuthContext);
 
-  useEffect(()=> {
-    console.log(productIds)
-  }, [productIds])
   return (
     <div>
       {loading ? (

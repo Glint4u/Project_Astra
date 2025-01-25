@@ -23,11 +23,25 @@ export default async function storeFront(query, variables = {}) {
   try {
     const response = await fetch(SHOPIFY_URL, options);
     if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+
     const data = await response.json();
-    if (data.errors) throw new Error("GraphQL query failed");
+
+    // Check for GraphQL errors in the response
+    if (data.errors) {
+      console.error("GraphQL Errors:", data.errors);  // Log errors from Shopify
+      throw new Error("GraphQL query failed");
+    }
+
     return data;
   } catch (error) {
     console.error("API Fetch Error:", error);
+    
+    // Log the response body when available
+    if (error.response) {
+      const errorText = await error.response.text();
+      console.error("Error details:", errorText);
+    }
+
     throw new Error("Failed to fetch from Shopify Storefront API");
   }
 }

@@ -34,7 +34,7 @@ export default function Page() {
 
   const getSizes = (variants) => {
     let temp_sizes = [];
-    console.log(variants);
+    // console.log(variants);
     for (let i = 0; i < variants.length; i++) {
       let k = variants[i]?.node?.selectedOptions?.filter(
         (item) => item.name === "Size"
@@ -49,7 +49,7 @@ export default function Page() {
 
   const getColors = (variants) => {
     let temp_sizes = [];
-    console.log(variants);
+    // console.log(variants);
     for (let i = 0; i < variants.length; i++) {
       let k = variants[i]?.node?.selectedOptions?.filter(
         (item) => item.name === "Color"
@@ -63,12 +63,12 @@ export default function Page() {
     setLoading(true);
     try {
       const response = await getProductById(id);
-      console.log(response)
+      // console.log(response)
       if (!response) {
         notFound();
       }
       setData(response);
-      console.log(response);
+      // console.log(response);
 
       // Wait for the timeout to finish
       await new Promise((resolve) =>
@@ -245,7 +245,7 @@ export default function Page() {
                       onClick={() => setDetailsOpen(!detailsOpen)}
                       className="cursor-pointer flex items-center justify-between w-full max-md:gap-x-[20px]"
                     >
-                      <p>Details</p>
+                      <p>Description</p>
                       <button className="cursor-pointer">
                         <ChevronDown color="white" />
                       </button>

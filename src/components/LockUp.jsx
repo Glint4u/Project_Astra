@@ -64,7 +64,7 @@ export default function LockUp() {
         body: JSON.stringify({ password: password }),
       });
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
 
       if (response.ok) {
         setLoading(false);
@@ -146,7 +146,7 @@ export default function LockUp() {
           null
       }
 
-      <div className="w-screen h-fit min-h-screen pt-[50px] md:pt-[0px] pb-[20px] lockup-bg flex flex-col items-center justify-start relative">
+      <div className="w-screen h-fit bg-black min-h-screen pt-[50px] md:pt-[0px] pb-[20px] lockup-bg flex flex-col items-center justify-start relative">
         <div className="flex flex-col items-center justify-center w-[90%]">
           <div className="flex items-center justify-between w-[90%] max-sm:mb-[20px]">
             <Image
