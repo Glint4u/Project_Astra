@@ -63,7 +63,6 @@ export default function Page() {
     setLoading(true);
     try {
       const response = await getProductById(id);
-      // console.log(response)
       if (!response) {
         notFound();
       }
@@ -220,6 +219,7 @@ export default function Page() {
                   <div className="flex flex-wrap gap-[30px] justify-start items-center ">
                     {size.map((item, index) => (
                       <div
+                      key={index}
                         className={`text-[18px]  cursor-pointer font-normal ${
                           selectedSizes === item.Size
                             ? "text-[#ffffff]"
@@ -252,8 +252,9 @@ export default function Page() {
                     </div>
                     {detailsOpen ? (
                       <div className="h-fit text-white/60 mt-2 max-md:text-[13px]">
-                        This is the answer to the question. You can customize
-                        this content as needed.
+                        {
+                          data?.description
+                        }
                       </div>
                     ) : null}
                   </div>
