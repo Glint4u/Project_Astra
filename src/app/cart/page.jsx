@@ -100,7 +100,6 @@ export default function page() {
   
   const checkout = async () => {
     const url = await createCheckout(cart);
-    console.log(url)
     window.location.href = url.checkoutUrl;
   };
 
@@ -141,7 +140,7 @@ export default function page() {
                 </div>
               </div>
               <div className=" text-[21px] md:text-[20px] text-white font-medium">
-                Rs. {calculateSubtotal()}
+                ₹ {calculateSubtotal()}
               </div>
             </div>
             <div className="text-[13px] md:text-[17px] font-thin text-white mb-[80px]">
