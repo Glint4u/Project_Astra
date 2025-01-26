@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { koulen } from "../fonts";
 
 const Timer = () => {
-  const targetDate = new Date('2025-01-27T00:00:00');
+  const targetDate = new Date('2025-01-26T12:00:00');
   const calculateTimeLeft = () => Math.max(0, Math.floor((targetDate - new Date()) / 1000));
 
   const [time, setTime] = useState(calculateTimeLeft);
