@@ -1,17 +1,16 @@
 const CREATE_CHECKOUT_MUTATION = `
-  mutation checkoutCreate($input: CheckoutCreateInput!) {
-    checkoutCreate(input: $input) {
-      checkout {
-        id
-        webUrl
-      }
-      checkoutUserErrors {
-        message
-        field
-        code
-      }
+mutation CartCreate($input: CartInput!) {
+  cartCreate(input: $input) {
+    cart {
+      id
+      checkoutUrl
+    }
+    userErrors {
+      field
+      message
     }
   }
+}
 `;
 
 export default CREATE_CHECKOUT_MUTATION;

@@ -97,9 +97,11 @@ export default function page() {
   const calculateSubtotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+  
   const checkout = async () => {
     const url = await createCheckout(cart);
-    window.location.href = url;
+    console.log(url)
+    window.location.href = url.checkoutUrl;
   };
 
   return (
@@ -161,7 +163,7 @@ export default function page() {
           </Link>
           <button
             disabled={cart.length === 0}
-            href="/"
+            // href="/checkout"
             className={` ${
               cart.length === 0
                 ? "cursor-not-allowed bg-[#ffffff80]"
@@ -169,7 +171,7 @@ export default function page() {
             } flex justify-center items-center w-full h-[40px] border-[1px] border-[#8d8d8d] `}
             onClick={checkout}
           >
-            CHECKOUT
+            PROCCED TO PAYMENT
           </button>
         </div>
       </div>
