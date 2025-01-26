@@ -10,7 +10,6 @@ const SHOPIFY_URL = "https://ri0ayh-qx.myshopify.com/api/2025-01/graphql.json";
 // const STOREFRONT_ACCESS_TOKEN = "f15718585f7e3916dc39486507ad84fc";
 // const SHOPIFY_URL = "https://dtkt1c-bn.myshopify.com/api/2025-01/graphql.json";
 
-
 export default async function storeFront(query, variables = {}) {
   const options = {
     method: "POST",
