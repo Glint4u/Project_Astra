@@ -53,7 +53,7 @@ const CartComponent = ({ image, title, price, size, id, quantity }) => {
             {title}
           </div>
           <div className="text-[15px] md:text-[17px] font-thin text-white ">
-            $ {price}
+            ₹ {price}
           </div>
         </div>
         <Line />
@@ -105,7 +105,7 @@ export default function page() {
   };
 
   return (
-    <div className="min-h-screen h-fit w-full bg-black pt-[150px] pb-[80px]  ">
+    <div className="min-h-screen h-fit w-full bg-black pt-[165px] pb-[80px]  ">
       <div className=" w-[95%] md:w-[80%] m-auto ">
         <div className="flex justify-between items-center gap-[30px]">
           <div className=" text-[25px] md:text-[30px] font-semibold text-white ">

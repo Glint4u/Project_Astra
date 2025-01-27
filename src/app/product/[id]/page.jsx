@@ -63,7 +63,6 @@ export default function Page() {
     setLoading(true);
     try {
       const response = await getProductById(id);
-      // console.log(response)
       if (!response) {
         notFound();
       }
@@ -144,7 +143,7 @@ export default function Page() {
   }, [data]);
 
   return (
-    <div className="bg-black min-h-screen h-fit pt-[130px] text-white">
+    <div className="bg-black min-h-screen h-fit pt-[165px] text-white">
       <div className="flex justify-between px-[2vw]">
         {prevProductId ? (
           <Link prefetch={true} href={`/product/${prevProductId}`}>
@@ -154,10 +153,12 @@ export default function Page() {
             </div>
           </Link>
         ) : (
-          <div className="flex justify-center items-center gap-[3px] text-gray-600 cursor-not-allowed">
-            <ChevronLeft />
-            <span className="text-[17px]">Back</span>
-          </div>
+          <Link prefetch={true} href="/">
+            <div className="flex justify-center items-center gap-[3px] text-white">
+              <ChevronLeft />
+              <span className="text-[17px]">Home</span>
+            </div>
+          </Link>
         )}
         {nextProductId ? (
           <Link prefetch={true} href={`/product/${nextProductId}`}>
@@ -192,7 +193,7 @@ export default function Page() {
               <div>
                 <h1 className="text-[30px] font-bold">{data?.title}</h1>
                 <p className="text-[15px] font-thin">
-                  $ {data?.variants.edges[0]?.node?.price?.amount}
+                  ₹ {data?.variants.edges[0]?.node?.price?.amount}
                 </p>
               </div>
 
@@ -220,6 +221,7 @@ export default function Page() {
                   <div className="flex flex-wrap gap-[30px] justify-start items-center ">
                     {size.map((item, index) => (
                       <div
+                        key={index}
                         className={`text-[18px]  cursor-pointer font-normal ${
                           selectedSizes === item.Size
                             ? "text-[#ffffff]"
@@ -252,8 +254,7 @@ export default function Page() {
                     </div>
                     {detailsOpen ? (
                       <div className="h-fit text-white/60 mt-2 max-md:text-[13px]">
-                        This is the answer to the question. You can customize
-                        this content as needed.
+                        {data?.description}
                       </div>
                     ) : null}
                   </div>
