@@ -100,11 +100,12 @@ export default function page() {
   
   const checkout = async () => {
     const url = await createCheckout(cart);
+    console.log(url)
     window.location.href = url.checkoutUrl;
   };
 
   return (
-    <div className="min-h-screen h-fit w-full bg-black pt-[150px] pb-[80px]  ">
+    <div className="min-h-screen h-fit w-full bg-black pt-[165px] pb-[80px]  ">
       <div className=" w-[95%] md:w-[80%] m-auto ">
         <div className="flex justify-between items-center gap-[30px]">
           <div className=" text-[25px] md:text-[30px] font-semibold text-white ">
@@ -140,7 +141,7 @@ export default function page() {
                 </div>
               </div>
               <div className=" text-[21px] md:text-[20px] text-white font-medium">
-                ₹ {calculateSubtotal()}
+                Rs. {calculateSubtotal()}
               </div>
             </div>
             <div className="text-[13px] md:text-[17px] font-thin text-white mb-[80px]">
