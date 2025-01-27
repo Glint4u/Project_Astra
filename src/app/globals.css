@@ -103,3 +103,20 @@
   width: 100vw;
   /* height: 100vh; */
 }
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+  transition: transform 0.5s ease-out;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
