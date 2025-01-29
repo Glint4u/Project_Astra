@@ -53,7 +53,7 @@ const CartComponent = ({ image, title, price, size, id, quantity }) => {
             {title}
           </div>
           <div className="text-[15px] md:text-[17px] font-thin text-white ">
-            ₹ {price}
+            $ {price}
           </div>
         </div>
         <Line />

@@ -5,29 +5,20 @@ import Link from "next/link";
 import { Search, ShoppingCart, Menu } from "lucide-react";
 import { koulen } from "@/app/fonts";
 import { AuthContext } from "@/context/authContext";
+import DiscountStrip from "./DiscountStrip";
 
 export default function Navbar() {
   const { cartLength } = useContext(AuthContext);
   const [navOpen, setNavOpen] = useState(false);
 
+
   return (
-    <div className="fixed w-full top-0 home-bg">
+    <div className="fixed w-full top-0 home-bg z-[10000]">
       {/* <div className='bg-[#ff ffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
         NEW DROP IS LIVE!
       </div> */}
-      <div className="w-full sm:pr-2 py-1 pr-0 flex items-center overflow-hidden bg-[#ffffff39] backdrop-blur-[10px]">
-        <div className="flex-1 overflow-hidden">
-          <div className="flex justify-between whitespace-nowrap animate-scroll">
-            <span className="text-white px-4">
-              ₹500 off on orders above ₹5,000
-            </span>
-            <span className="text-white px-4">
-              A random free t-shirt on orders above ₹6,500
-            </span>
-          </div>
-        </div>
-      </div>
       <div
+      
         className={`relative ${koulen.className} ${
           navOpen ? "h-[240px] " : "h-[100px]"
         } md:h-[120px] transition-all duration-500 overflow-hidden bg-[#00000057] backdrop-blur-[10px] md:flex items-center justify-center md:px-[3vw]`}

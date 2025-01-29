@@ -10,6 +10,7 @@ import getProductById from "@/app/config/service/productIDService";
 import Loading from "@/components/Loading";
 import SizeChart from "@/components/SizeChart";
 import { notFound } from "next/navigation";
+import ProductImageSlider from "@/components/ProductImageSlider";
 
 const Line = ({ m }) => {
   return <div className={` ${m} w-full h-[1px] bg-[#ffffff1c] `}></div>;
@@ -31,6 +32,8 @@ export default function Page() {
 
   const [colors, setColors] = useState([]);
   const [selectedColor, setSelectedColor] = useState("");
+
+  const [productImageList, setProductImageList] = useState([]);
 
   const getSizes = (variants) => {
     let temp_sizes = [];
@@ -77,11 +80,21 @@ export default function Page() {
       );
 
       calculateNavigationIds();
+      setImages(response);
       setLoading(false);
     } catch (error) {
       setLoading(false);
       toast.error("Failed to fetch product details");
     }
+  };
+
+  const setImages = (data) => {
+    const temp = data?.images?.edges;
+    const obj = [];
+    for (let i = 0; i < temp.length; i++) {
+      obj.push(temp[i]?.node?.url);
+    }
+    setProductImageList(obj);
   };
 
   const calculateNavigationIds = () => {
@@ -181,19 +194,20 @@ export default function Page() {
         ) : (
           <>
             <div className="w-[100%] md:w-auto">
-              <Image
+              {/* <Image
                 src={data?.featuredImage.url}
                 className="m-auto"
                 width={400}
                 height={0}
                 alt={data?.title || "Product Image"}
-              />
+              /> */}
+              <ProductImageSlider images={productImageList} />
             </div>
             <div className="w-[100%] md:w-[60%]">
               <div>
                 <h1 className="text-[30px] font-bold">{data?.title}</h1>
                 <p className="text-[15px] font-thin">
-                  ₹ {data?.variants.edges[0]?.node?.price?.amount}
+                  $ {data?.variants.edges[0]?.node?.price?.amount}
                 </p>
               </div>
 
