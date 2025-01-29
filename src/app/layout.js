@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
             position="top-center"
             toastOptions={{
               style: {
-                zIndex: 1500,
+                zIndex: 1500000,
               },
             }}
           />

@@ -10,7 +10,7 @@ export default function ProductCard({ data }) {
         href={`/product/${data.id}`}
         className="flex flex-col items-center justify-center"
       >
-        <div className="bg-[#141414e1] overflow-y-hidden h-fit min-h-[100px] sm:min-h-[200px] sm:max-h-[350px] w-[150px] sm:w-[300px] flex items-center justify-center">
+        <div className="bg-[#141414e1] overflow-y-hidden max-h-[180px] min-h-[100px] sm:min-h-[200px] sm:max-h-[350px] w-[150px] sm:w-[300px] flex items-center justify-center">
           <Image
             alt={data.title}
             src={data.image}
