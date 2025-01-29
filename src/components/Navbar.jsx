@@ -13,7 +13,7 @@ export default function Navbar() {
 
 
   return (
-    <div className="fixed w-full top-0 home-bg z-[10000]">
+    <div className="fixed w-full top-0 home-bg z-[10]">
       {/* <div className='bg-[#ff ffff39] backdrop-blur-[10px] h-[35px] flex items-center justify-center text-white text-[12px] '>
         NEW DROP IS LIVE!
       </div> */}

@@ -6,10 +6,10 @@ export default function DiscountStrip() {
       <div className="flex-1 overflow-hidden">
         <div className="flex justify-between whitespace-nowrap animate-scroll">
           <span className="text-white px-4">
-            ₹500 off on orders above ₹5,000
+            $500 off on orders above $5,000
           </span>
           <span className="text-white px-4">
-            A random free t-shirt on orders above ₹6,500
+            A random free t-shirt on orders above $6,500
           </span>
         </div>
       </div>

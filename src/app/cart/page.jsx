@@ -97,10 +97,10 @@ export default function page() {
   const calculateSubtotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
-  
+
   const checkout = async () => {
     const url = await createCheckout(cart);
-    console.log(url)
+    console.log(url);
     window.location.href = url.checkoutUrl;
   };
 
