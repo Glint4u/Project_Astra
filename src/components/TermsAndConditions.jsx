@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react";
 
 export default function TermsAndConditions() {
   return (
@@ -76,7 +75,7 @@ export default function TermsAndConditions() {
               <p>c. Pricing</p>
               <ul className="pl-[50px] list-disc max-sm:pl-[35px]">
                 <li>
-                  Prices listed on the website are in ₹(INR) and are subject to
+                  Prices listed on the website are in $(INR) and are subject to
                   change without prior notice.
                 </li>
               </ul>
@@ -201,9 +200,7 @@ export default function TermsAndConditions() {
 
           <section className="flex flex-col gap-y-[20px]">
             <div>
-              <h1 className="text-[30px] max-sm:text-[25px]">
-                8. Privacy
-              </h1>
+              <h1 className="text-[30px] max-sm:text-[25px]">8. Privacy</h1>
             </div>
             <div className="max-sm:text-[15px]">
               <p>
@@ -261,9 +258,7 @@ export default function TermsAndConditions() {
 
           <section className="flex flex-col gap-y-[20px]">
             <div>
-              <h1 className="text-[30px] max-sm:text-[25px]">
-                12. Contact Us
-              </h1>
+              <h1 className="text-[30px] max-sm:text-[25px]">12. Contact Us</h1>
             </div>
             <div className="max-sm:text-[15px]">
               <p className="mb-[15px]">
@@ -283,5 +278,5 @@ export default function TermsAndConditions() {
         </div>
       </div>
     </div>
-  )
+  );
 }

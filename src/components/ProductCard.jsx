@@ -21,7 +21,7 @@ export default function ProductCard({ data }) {
         </div>
         <div className="flex-col min-h-[100px] h-fit py-[10px] text-[15px] md:text-[20px] font-bold text-center flex items-center justify-center ">
           <div>{data.title}</div>
-          <div className="font-thin">₹ {data.price}</div>
+          <div className="font-thin">$ {data.price}</div>
         </div>
       </Link>
     </div>

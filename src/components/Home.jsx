@@ -141,9 +141,9 @@ export default function HomePage({
         </div>
 
         <div className="bg-black min-h-[500px] h-fit pb-[100px]  w-full">
-        <div>
+        {/* <div>
           < DiscountStrip />
-        </div>
+        </div> */}
           <div className="w-[90%] pt-[50px] m-auto text-white text-[30px] md:text-[40px] font-semibold mb-[30px]">
             PRODUCTS
           </div>
