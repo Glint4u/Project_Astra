@@ -10,6 +10,7 @@ import getProductById from "@/app/config/service/productIDService";
 import Loading from "@/components/Loading";
 import SizeChart from "@/components/SizeChart";
 import { notFound } from "next/navigation";
+import ProductImageSlider from "@/components/ProductImageSlider";
 
 const Line = ({ m }) => {
   return <div className={` ${m} w-full h-[1px] bg-[#ffffff1c] `}></div>;
@@ -31,6 +32,8 @@ export default function Page() {
 
   const [colors, setColors] = useState([]);
   const [selectedColor, setSelectedColor] = useState("");
+
+  const [productImageList, setProductImageList] = useState([]);
 
   const getSizes = (variants) => {
     let temp_sizes = [];
@@ -63,7 +66,6 @@ export default function Page() {
     setLoading(true);
     try {
       const response = await getProductById(id);
-      // console.log(response)
       if (!response) {
         notFound();
       }
@@ -78,11 +80,21 @@ export default function Page() {
       );
 
       calculateNavigationIds();
+      setImages(response);
       setLoading(false);
     } catch (error) {
       setLoading(false);
       toast.error("Failed to fetch product details");
     }
+  };
+
+  const setImages = (data) => {
+    const temp = data?.images?.edges;
+    const obj = [];
+    for (let i = 0; i < temp.length; i++) {
+      obj.push(temp[i]?.node?.url);
+    }
+    setProductImageList(obj);
   };
 
   const calculateNavigationIds = () => {
@@ -144,7 +156,7 @@ export default function Page() {
   }, [data]);
 
   return (
-    <div className="bg-black min-h-screen h-fit pt-[130px] text-white">
+    <div className="bg-black min-h-screen h-fit pt-[165px] text-white">
       <div className="flex justify-between px-[2vw]">
         {prevProductId ? (
           <Link prefetch={true} href={`/product/${prevProductId}`}>
@@ -154,10 +166,12 @@ export default function Page() {
             </div>
           </Link>
         ) : (
-          <div className="flex justify-center items-center gap-[3px] text-gray-600 cursor-not-allowed">
-            <ChevronLeft />
-            <span className="text-[17px]">Back</span>
-          </div>
+          <Link prefetch={true} href="/">
+            <div className="flex justify-center items-center gap-[3px] text-white">
+              <ChevronLeft />
+              <span className="text-[17px]">Home</span>
+            </div>
+          </Link>
         )}
         {nextProductId ? (
           <Link prefetch={true} href={`/product/${nextProductId}`}>
@@ -180,13 +194,14 @@ export default function Page() {
         ) : (
           <>
             <div className="w-[100%] md:w-auto">
-              <Image
+              {/* <Image
                 src={data?.featuredImage.url}
                 className="m-auto"
                 width={400}
                 height={0}
                 alt={data?.title || "Product Image"}
-              />
+              /> */}
+              <ProductImageSlider images={productImageList} />
             </div>
             <div className="w-[100%] md:w-[60%]">
               <div>
@@ -220,6 +235,7 @@ export default function Page() {
                   <div className="flex flex-wrap gap-[30px] justify-start items-center ">
                     {size.map((item, index) => (
                       <div
+                        key={index}
                         className={`text-[18px]  cursor-pointer font-normal ${
                           selectedSizes === item.Size
                             ? "text-[#ffffff]"
@@ -252,8 +268,7 @@ export default function Page() {
                     </div>
                     {detailsOpen ? (
                       <div className="h-fit text-white/60 mt-2 max-md:text-[13px]">
-                        This is the answer to the question. You can customize
-                        this content as needed.
+                        {data?.description}
                       </div>
                     ) : null}
                   </div>

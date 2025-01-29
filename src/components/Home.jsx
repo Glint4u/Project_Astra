@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 import { koulen } from "../app/fonts";
 import getAllProducts from "@/app/config/service/productService";
 import Loading from "./Loading";
+import DiscountStrip from "./DiscountStrip";
 
 export default function HomePage({
   productIds,
@@ -139,8 +140,11 @@ export default function HomePage({
           </div>
         </div>
 
-        <div className="bg-black min-h-[500px] h-fit pb-[100px] pt-[50px] w-full">
-          <div className="w-[90%] m-auto text-white text-[30px] md:text-[40px] font-semibold mb-[30px]">
+        <div className="bg-black min-h-[500px] h-fit pb-[100px]  w-full">
+        <div>
+          < DiscountStrip />
+        </div>
+          <div className="w-[90%] pt-[50px] m-auto text-white text-[30px] md:text-[40px] font-semibold mb-[30px]">
             PRODUCTS
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 place-content-between flex-wrap min-h-[300px] w-[90%] gap-[30px] m-auto">
