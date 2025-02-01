@@ -28,14 +28,14 @@ export default async function storeFront(query, variables = {}) {
 
     // Check for GraphQL errors in the response
     if (data.errors) {
-      console.error("GraphQL Errors:", data.errors);  // Log errors from Shopify
+      console.error("GraphQL Errors:", data.errors); // Log errors from Shopify
       throw new Error("GraphQL query failed");
     }
 
     return data;
   } catch (error) {
     console.error("API Fetch Error:", error);
-    
+
     // Log the response body when available
     if (error.response) {
       const errorText = await error.response.text();
@@ -45,7 +45,6 @@ export default async function storeFront(query, variables = {}) {
     throw new Error("Failed to fetch from Shopify Storefront API");
   }
 }
-
 
 // // storefront-api.js
 
@@ -131,5 +130,3 @@ export default async function storeFront(query, variables = {}) {
 //   const data = await storeFront(productsQuery);
 //   return data;
 // }
-
-
