@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const date = checkDate();
-        if (date < 25) {
+        if (date < 28) {
             setLoading(false);
             setOpen(true);
             setAuthenticated(true);
