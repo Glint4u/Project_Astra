@@ -61,18 +61,48 @@ function Page() {
     
 
     const faqs = [
-        "I PLACED MULTIPLE ORDERS, CAN I COMBINE THEM?",
-        "I RECEIVED A DAMAGED PRODUCT, WHAT SHOULD I DO?",
-        "CAN I RETURN MY ONLINE ORDER IN STORE?",
-        "I RECEIVED A TRACKING NUMBER, BUT THE SHIPMENT HASN'T MOVED.",
-        "CAN I RETURN COLLABORATION ITEMS?",
-        "IF AN ITEM IS SOLD OUT, WHEN WILL IT BE AVAILABLE AGAIN?",
-        "MY ORDER IS A GIFT, DO YOU INCLUDE THE PRICE IN THE PACKAGE?",
-        "DO YOU OFFER GIFT RECEIPTS OR GIFT CARDS?",
-        "I RECEIVED AN ITEM FROM STUSSY.COM AS A GIFT. CAN I RETURN IT OR EXCHANGE IT?",
-        "CAN I GET SOME FREE STICKERS?",
+        {
+            question: "I PLACED MULTIPLE ORDERS, CAN I COMBINE THEM?",
+            answer: "Unfortunately, we are unable to combine multiple orders once they have been placed."
+        },
+        {
+            question: "I RECEIVED A DAMAGED PRODUCT, WHAT SHOULD I DO?",
+            answer: "If you receive a damaged product, please contact our customer support with photos of the damage for assistance."
+        },
+        {
+            question: "CAN I RETURN MY ONLINE ORDER IN STORE?",
+            answer: "Returns for online orders can only be processed through our online return system and not in physical stores."
+        },
+        {
+            question: "I RECEIVED A TRACKING NUMBER, BUT THE SHIPMENT HASN'T MOVED.",
+            answer: "Please allow 24-48 hours for tracking updates. If the issue persists, contact the shipping carrier for more details."
+        },
+        {
+            question: "CAN I RETURN COLLABORATION ITEMS?",
+            answer: "Collaboration items are final sale and cannot be returned or exchanged."
+        },
+        {
+            question: "IF AN ITEM IS SOLD OUT, WHEN WILL IT BE AVAILABLE AGAIN?",
+            answer: "Restock availability varies. Subscribe to our newsletter or check the website for updates."
+        },
+        {
+            question: "MY ORDER IS A GIFT, DO YOU INCLUDE THE PRICE IN THE PACKAGE?",
+            answer: "No, we do not include pricing details in the package for gift orders."
+        },
+        {
+            question: "DO YOU OFFER GIFT RECEIPTS OR GIFT CARDS?",
+            answer: "Yes, we offer both gift receipts and gift cards. Please check our website for more details."
+        },
+        {
+            question: "I RECEIVED AN ITEM FROM STUSSY.COM AS A GIFT. CAN I RETURN IT OR EXCHANGE IT?",
+            answer: "Gift returns or exchanges require proof of purchase and are subject to our return policy."
+        },
+        {
+            question: "CAN I GET SOME FREE STICKERS?",
+            answer: "We occasionally include free stickers with orders, but they are not guaranteed."
+        }
     ];
-
+    
     return (
         <>
             <Toaster position="top-center" reverseOrder={false} /> 
@@ -189,13 +219,13 @@ function Page() {
                             Frequently Asked Questions
                         </h3>
                         <div className="flex flex-col gap-y-[30px] text-white w-[70%] md:overflow-y-auto max-md:w-full max-md:px-[20px]">
-                            {faqs.map((question, index) => (
+                            {faqs.map((items, index) => (
                                 <div
                                     key={index}
                                     className="flex flex-col gap-y-[20px] items-start w-full max-md:text-[13px]"
                                 >
                                     <div className="flex items-center justify-between w-full max-md:gap-x-[20px]">
-                                        <p>{question}</p>
+                                        <p>{items.question}</p>
                                         <button
                                             className="cursor-pointer"
                                             onClick={() => toggleOption(index)}
@@ -205,8 +235,7 @@ function Page() {
                                     </div>
                                     {openIndexes.includes(index) && (
                                         <div className="h-fit text-white/60 mt-2 max-md:text-[13px]">
-                                            This is the answer to the question: "{question}". You can
-                                            customize this content as needed.
+                                            {items.answer}
                                         </div>
                                     )}
                                 </div>
