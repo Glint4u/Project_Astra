@@ -94,3 +94,29 @@
 ::-webkit-scrollbar{
   display: none;
 }
+
+.bgPhoto{
+  background-image: url(../../public/bgPhoto.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  /* height: 100vh; */
+}
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+  transition: transform 0.5s ease-out;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

@@ -6,6 +6,7 @@ import API_URLS from "../constants/api_urls";
 
 function Page() {
     const [openIndexes, setOpenIndexes] = useState([]);
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -25,7 +26,7 @@ function Page() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const loadingToastId = toast.loading("Submitting Form..."); 
-    
+        setLoading(true)
         try {
             const response = await fetch(API_URLS.CONTACT, {
                 method: "POST",
@@ -49,8 +50,10 @@ function Page() {
                 contact_reason: "",
                 message: "",
             });
+            setLoading(false)
             return
         } catch (error) {
+            setLoading(false)
             toast.dismiss(loadingToastId);
             toast.error("There was an error submitting the form. Please try again.");
         }
@@ -97,6 +100,8 @@ function Page() {
                                 }}
                                 value={formData.name}
                                 placeholder="NAME"
+                                disabled={loading}
+
                             />
                             <input
                                 required
@@ -111,6 +116,8 @@ function Page() {
                                     });
                                 }}
                                 placeholder="MOBILE NUMBER"
+                                disabled={loading}
+
                             />
                             <input
                                 required
@@ -125,6 +132,8 @@ function Page() {
                                     });
                                 }}
                                 placeholder="EMAIL"
+                                disabled={loading}
+
                             />
                             <select
                                 onChange={(e) => {
@@ -136,6 +145,8 @@ function Page() {
                                 value={formData.contact_reason}
                                 name=""
                                 id=""
+                                disabled={loading}
+
                                 className=" focus:bg-black/70 bg-transparent border-b border-white/50 outline-none pb-[18px] placeholder:text-[13px]"
                             >
                                 <option value="Please Select">
@@ -159,11 +170,13 @@ function Page() {
                                 className="resize-none bg-transparent border-b border-white/50 outline-none pb-[18px] placeholder:text-[13px]"
                                 name=""
                                 id=""
+                                disabled={loading}
                             ></textarea>
 
                             <button
                                 type="submit"
-                                className="bg-white text-black h-[50px]"
+                                className={`bg-white text-black h-[50px] ${loading ? "cursor-not-allowed bg-[#ffffffaf]" : "cursor-pointer"} `}
+                                disabled={loading}
                             >
                                 SUBMIT
                             </button>

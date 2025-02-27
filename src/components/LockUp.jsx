@@ -64,7 +64,7 @@ export default function LockUp() {
         body: JSON.stringify({ password: password }),
       });
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
 
       if (response.ok) {
         setLoading(false);
@@ -95,8 +95,8 @@ export default function LockUp() {
               }}
             />
             <div onClick={(e)=>e.stopPropagation()} className="w-[400px] p-[20px] bg-[#2a2a2adf] text-white min-h-[180px] h-fit rounded-[20px] shadow-md" >
-              <div className=" w-full flex justify-end cursor-pointer">
-                <X onClick={() => { setLockClicked(!lockClicked); setPassword("") }} />
+              <div className={`w-full flex justify-end ${loading ? "cursor-not-allowed" : "cursor-pointer"} `}>
+                <X onClick={!loading ? () => { setLockClicked(!lockClicked); setPassword("") } : null} />
               </div>
 
               <div className="h-fit mt-[10px]" >
@@ -133,6 +133,7 @@ export default function LockUp() {
                       className={`bg-[#FFFDFD] text-black w-[100%] h-[65px] font-semibold text-[20px] max-sm:h-[50px] max-sm:text-[18px] tracking-[1px] ${loading ? "opacity-50 cursor-not-allowed" : ""
                         }`}
                       type="submit"
+                      disabled={loading}
                     >
                       Unlock
                     </button>
@@ -145,7 +146,7 @@ export default function LockUp() {
           null
       }
 
-      <div className="w-screen h-fit min-h-screen pt-[50px] md:pt-[0px] pb-[20px] lockup-bg flex flex-col items-center justify-start relative">
+      <div className="w-screen h-fit bg-black min-h-screen pt-[50px] md:pt-[0px] pb-[20px] lockup-bg flex flex-col items-center justify-start relative">
         <div className="flex flex-col items-center justify-center w-[90%]">
           <div className="flex items-center justify-between w-[90%] max-sm:mb-[20px]">
             <Image
